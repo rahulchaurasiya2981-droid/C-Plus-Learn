@@ -1,0 +1,35 @@
+- C++ is a middle level language(used for both low level and hight level)
+- give low level control using pointer and high level control using opps(class)fff
+- C++ = C + “Modern Features”
+- C++ = C + OOP + Function Overloading + Templates + Exception Handling + STL
+- C++ support 
+    1. procedural language (by c)
+    2. object-oriented language (by c++)
+    3. generic programming by C++ templates
+
+
+- C++ is a superset of C language
+- C++ programs can use existing C software libraries
+- C follows top-down approach of programming
+- C++ follows bottom-up approach of programming
+- C adopts Procedure Oriented Programming
+- C++ adopts Object Oriented Programming
+
+
+Object 
+--------
+- An entity in the system that can be defined as a set of properties and operations performed using entity's property set is called object.
+1. Encapsulation
+2. Data Hiding
+3. Abstraction
+4. Polymorphism
+5. Inheritance
+
+Class & Object
+---------------
+Class is a blueprint of an Object
+Class is a description of Object's property set and set of operations
+Creating class is as good as defining a new data type
+Class is a means to achieve encapsulation
+Object is a run time entity
+Object is an instance of a class

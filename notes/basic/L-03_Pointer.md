@@ -25,7 +25,7 @@ Indirection operator (*)
 
 - Pointer are the variable that contain address of the other variable (int *p=&x)
 - Pointer size depends on the system architecture, not the RAM size.
-- int *j; is dangerous because it creates a pointer that may contain a random address. Dereferencing it is undefined behavior, which can crash your program or corrupt memory invisibly. The safe alternative is: initialize, use nullptr, use smart pointers, prefer references, and employ sanitizers/tools during development.
+- int *j; is dangerous because it creates a pointer that may contain a Garbage address(random address). Dereferencing it is undefined behavior, which can crash your program or corrupt memory invisibly. The safe alternative is: initialize, use nullptr, use smart pointers, prefer references, and employ sanitizers/tools during development.
 - A wild pointer is a pointer that has not been initialized and therefore points to an unknown or random memory address.
 - Here j is wild pointer
 
@@ -60,6 +60,13 @@ Indirection operator (*)
 - Pointer always point to base address (1st byte address) of the variable
 - Pointer point the vairbale of the same DT as pointer DT (otherwise unwanted byte access)
 - Pointer size is depend on system architechre not on DT (64bit -> 8 bytes) (32bit -> 4 bytes)
+- Pointer size depends on the compiler’s target architecture, not just your CPU.
+    - see by running g++ -v  
+        -> --target=mingw32 :-> 4 byte
+        -> --target=mingw64 :-> 8 byte
+- If you need to compile for 64-bit: g++ -m64 file.cpp -o file -> getting erro so need to install mingw-64 bit compiler
+
+
 - int x=5,*p,**q,***r;
 ```cpp
 int x=5,*p,**q,***r;
@@ -118,23 +125,29 @@ High address (100)
 - Every byte in RAM has a unique numeric address.(not float number address)
 - Variable arranged in sequence from higher to lower
 ```cpp
-    int *p,a;
-    int b,*q;
+    int *p,a=10,b=20,*q;
     p=&b;
     q=&a;
-    // This all arrange in sequence address from higher to lower addresses
-    cout<<"&p : "<<&p<<"\n";
-    cout<<"&a : "<<&a<<"\n";
-    cout<<"&b : "<<&b<<"\n";
-    cout<<"&q : "<<&q<<"\n";
-    cout<<"p = "<<p<<"\n";
-    cout<<"q = "<<q<<"\n";
-    cout<<"p+2 = "<<p+2<<"\n";   // giving self block address
-    cout<<"q-2 = "<<q-2<<"\n";   // giving self block address
+    // check sequence of address
+    cout<<&p<<endl;
+    cout<<&a<<endl;
+    cout<<&b<<endl;
+    cout<<&q<<endl;
+
+    // next memort block address
+    cout<<p+1<<endl;
+    cout<<q+1<<endl;
+
+    // self memory block address
+    cout<<p+2<<endl;
+    cout<<q-2<<endl;
 ```
 
 - Pointer difference in blocks/bytes
-- reseach this topic more by adding varibale between p and q
+    - p1 how much block/byte far from p2
+    - p2 how much block/byte far from p1
+    - number(or gap) of block/byte between p1/p2
+- researcg this topic more by adding varibale between p and q
 ```cpp
     int *p;
     int a=10,b=20;
@@ -153,9 +166,10 @@ High address (100)
 Application of pointer -1 with functions
 ----------------------------------------
 - Actual Argument : argument passed from function call
-- Forma Argument : receive actual argument called formal arguments
-- Call by value : value is copy (changes are not reflected)
-- Call by reference : address is copy (chnages are reflected)
+- Forma Argument : receiver of  actual argument called formal arguments form function body
+- Call by value : value is copy (changes are not reflected)  -> by ordinary variable
+- Call by reference : address is copy (chnages are reflected) -> by reference variable
+- Call by pointer : address is copy (chnages are reflected) -> by pointer variable
 - Ex: swaping of two numbers
 
 - Call by value -> ordinary variable -> copy value
@@ -304,7 +318,8 @@ int main()
         }
     }
 ```
-
+- Summary
+![Array with pointer](../images/array_with_pointer.jpg)
 
 
 Application of pointer - 3 with string

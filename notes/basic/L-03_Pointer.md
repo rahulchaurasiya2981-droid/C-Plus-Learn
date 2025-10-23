@@ -320,7 +320,7 @@ int main()
 ```
 - Summary
 <!-- ![Array with pointer](../images/array_with_pointer.jpg) -->
-<img src="../images/array_with_pointer.jpg" width="800" height="800" style="transform: rotate(90deg);">
+<img src="../images/array_with_pointer.jpg" width="800" height="800">
 
 
 Application of pointer - 3 with string
@@ -464,7 +464,7 @@ void reverse1(char *p)
     while(*(end+1) != '\0') end++;
     
 
-    while(start<=end)
+    while(start<end)
     {
         swap(start,end);
         start++;
@@ -514,16 +514,68 @@ int main()
 }
 ```
 
+Resource to lean pointer 1 : https://youtu.be/MIL2BK02X8A?si=bqK4RPP4NIiWhvGi
+--------------------------------------------------------------------------------
+- The pointer type tells the compiler how to interpret the memory at that address
+- Depending on DT, we are going to read bytes pointed by pointer
+- type conversion in pointer
+
+```cpp
+int main()
+{
+    int np=42;
+    int *ptr=&np;
+    cout<<*ptr;      // show memory content in integer format
+    cout<<*(float *)ptr; // show memory content in floating format (now int* pointer become float* pointer)
+    return 0;
+}
+```
+
+| Expression      | What changes           | Address      | What you see                                 |
+| --------------- | ---------------------- | ------------ | -------------------------------------------- |
+| `*ptr`          | interpreted as `int`   | same (`&np`) | 42                                           |
+| `*(float *)ptr` | interpreted as `float` | same (`&np`) | meaningless float (different interpretation) |
+
+- “When you typecast a pointer type, you do not change the memory or address — you only change how the compiler interprets the bits at that address.”
+- ⚠️ Warning: This is called type punning — it’s unsafe unless you really know what you’re doing (e.g., in embedded or system-level programming)
+
+```cpp
+int main()
+{
+    int nb=0b1100001;  // dec:97 
+    int *ptr=&nb;
+    cout<<nb<<endl;   // 97
+    cout<<ptr<<endl;  // 0x61ff08
+    cout<<*(char*)ptr; //a
+    return 0;
+}
+```
+
+```cpp
+int main()
+{
+    int nb=0b10010110;  // dec:150
+    int *ptr=&nb;
+    cout<<nb<<endl;    // 150
+    cout<<ptr<<endl;   // 0x61ff08
+    cout<<*(char*)ptr; //û (show wired sybmol if character not exist in ASCII table)
+    return 0;
+}
+```
 
 
+Resource to lean pointer 2 : https://youtu.be/zuegQmMdy8M?si=74hEZldz9Vc996fA
+------------------------------------------------------------------------------
 
-Lern pointer by also below resources
--------------------------------------
-- https://youtu.be/MIL2BK02X8A?si=bqK4RPP4NIiWhvGi
-- https://youtu.be/zuegQmMdy8M?si=74hEZldz9Vc996fA
-- https://youtu.be/YHwEIfrXZgE?si=ndlmEPf5Df4axxbl
-- pointer by code army
-- https://youtu.be/qYEjR6M0wSk?si=cRu-LI2cTG0n35C-
+Resource to lean pointer 3 : https://youtu.be/YHwEIfrXZgE?si=ndlmEPf5Df4axxbl
+--------------------------------------------------------------------------------
+
+Resource to lean pointer 4 : pointer by code army
+-------------------------------------------------
+
+Resource to lean pointer 5 : https://youtu.be/qYEjR6M0wSk?si=cRu-LI2cTG0n35C-
+------------------------------------------------------------------------------
+
 
 
 

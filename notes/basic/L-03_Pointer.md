@@ -364,7 +364,7 @@ Application of pointer - 3 with string
 | `char * const p`       | constant pointer to char          | ✅ Yes (but pointer cannot change)          |
 | `const char * const p` | constant pointer to constant char | ❌ No (neither pointer nor data can change) |
 
-- Operation on string
+- Few Operation on string we will cover in sring sections
 
 | Function                  | Purpose                 | Example          |
 | ------------------------- | ----------------------- | ---------------- |
@@ -373,9 +373,146 @@ Application of pointer - 3 with string
 | `length()`                | Count characters        | “Rahul” → 5      |
 | `reverse()`               | Print reverse           | “abc” → “cba”    |
 | `copyString()`            | Copy string             | a → b            |
-| `compareString()`         | Compare                 | “hi”, “hi”       |
-| `concat()`                | Join strings            | “Rahul” + “Boss” |
-| `countVowelsConsonants()` | Count vowels/consonants | “apple” → 2V,3C  |
-| `isPalindrome()`          | Check palindrome        | “madam” ✅       |
-| `countWords()`            | Count words             | “I am Boss” → 3  |
 
+```cpp
+#include <iostream>
+using namespace std;
+
+void display(const char *p)
+{
+    while (*p != '\0')
+    {
+        cout << *p;
+        p++;
+        // or
+        // cout<<*p++;
+    }
+}
+
+void toUpper(char *p)
+{
+    char *temp = p;
+    while (*p != '\0')
+    {
+        if (*p >= 'a' && *p <= 'z')
+        {
+            *p = *p - 32;
+        }
+        p++;
+    }
+    cout << "\nUppercase : ";
+    display(temp);
+}
+
+void toLower(char *p)
+{
+    char *temp = p;
+    while (*p != '\0')
+    {
+        if (*p >= 'A' && *p <= 'Z')
+        {
+            *p = *p + 32;
+        }
+        p++;
+    }
+    cout << "\nLowercase : ";
+    display(temp);
+}
+
+int length(char *p)
+{
+    int count = 0;
+    while (*p != '\0')
+    {
+        count++;
+        p++;
+    }
+    cout << "\nLength : " << count;
+    return count;
+}
+
+void swap(char *x,char *y)
+{
+    char temp=*x;
+    *x=*y;
+    *y=temp;
+}   
+
+// # Modify the original string
+// # Used when need to used reverse string later
+void reverse1(char *p)  
+{
+
+    char *start=p;
+    char *end=p;
+    while(*(end+1) != '\0') end++;
+    
+
+    while(start<=end)
+    {
+        swap(start,end);
+        start++;
+        end--;
+    }
+    cout<<"\nReverse : "; 
+    display(p);
+}
+
+// # Only print without affecting the original string
+// # Used when just need reverse string 
+void reverse2(const char *p) {
+    const char *end=p;
+    cout<<"\nReverse : "; 
+    while(*(end+1) != '\0') end++;
+    while(end>=p)
+    {
+        cout<<*end;
+        end--;
+    }
+}
+
+void copyString(char *src,char *des)
+{
+    while(*src != '\0')
+    {
+        *des=*src;
+        *src++;
+        *des++;
+    }
+    *des='\0';
+}
+
+int main()
+{
+    char a[] = "rahul";
+    display(a);
+    toUpper(a);
+    toLower(a);
+    length(a);
+    reverse1(a);
+    reverse2(a);
+    char b[length(a)+1];   //+1 added for null terminoator manually 
+    copyString(a,b);
+    cout<<"\n Copyright : "<<b;
+    return 0;
+}
+```
+
+
+
+
+Lern pointer by also below resources
+-------------------------------------
+- https://youtu.be/MIL2BK02X8A?si=bqK4RPP4NIiWhvGi
+- https://youtu.be/zuegQmMdy8M?si=74hEZldz9Vc996fA
+- https://youtu.be/YHwEIfrXZgE?si=ndlmEPf5Df4axxbl
+- pointer by code army
+- https://youtu.be/qYEjR6M0wSk?si=cRu-LI2cTG0n35C-
+
+
+
+
+Dynamic Memory Allocations (need to read and make notes)
+--------------------------------------------------------
+1. SMA (static MA)
+2. DMA (Dynamic MA)

@@ -84,7 +84,7 @@ int main()
     while (1)
     {
 
-        cout << "Enter operations : ";
+        cout << "Enter operation : ";
         cin >> input;
         if (input.size() != 1)
         {

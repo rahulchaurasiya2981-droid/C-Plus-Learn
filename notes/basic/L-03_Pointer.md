@@ -319,7 +319,8 @@ int main()
     }
 ```
 - Summary
-![Array with pointer](../images/array_with_pointer.jpg)
+<!-- ![Array with pointer](../images/array_with_pointer.jpg) -->
+<img src="../images/array_with_pointer.jpg" width="800">
 
 
 Application of pointer - 3 with string

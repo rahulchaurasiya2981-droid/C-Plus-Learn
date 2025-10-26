@@ -961,6 +961,62 @@ int main()
 ```
 
 
+- imp for variable/pointer variable/referece variable
+```cpp
+int main()
+{
+    int a = 100;
+    cout << "a : " << a << endl;
+    cout << "----- how compilerr internal treat variable a------\n";
+    cout << "&a : " << &a << endl;
+    cout << "*&a : " << *&a << endl;
+    cout << "*(&a + 0) : " << *(&a + 0) << endl;       // insted of writing base formula we use block number 0:self block
+    cout << "*(&a + 4*0) : " << *(&a + 4 * 0) << endl; // base formula to get base address of any memory blcok
+    cout << "*(&a) : " << *(&a);
+    // # summary
+    // - variable is also teated as pointer internall by adding 0 in base formula
+    // - & is job is to give base address of the memory block.
+    // - * is job is to read the bytes of the memory block [ start byte(basse) -> end(by DT of pointer) ]
+    //     - read this byte from base address to size of (pointer type)(int : 4 byte)
+    //     - means for reading memory conente need base address and sizeof(DT of pointer)
+    //     - * read this binary
+    //     - give output
+    cout << "\n------- for pointer variable p=&a; -----------\n";
+    int *p = &a;
+    cout << "p : " << p << endl;
+    cout << "&p : " << &p << endl;
+    cout << "*&p : " << *&p << endl;
+    cout << "*(&p + 0) : " << *(&p + 0) << endl;       // we say read this current memory block if 1:read next MB to current MB
+    cout << "*(&p + 4*0) : " << *(&p + 4 * 0) << endl; // internal calculations to find MB
+    cout << "*(&p) : " << *(&p);
+
+    // # data at that memory locations same process like above using pointer
+    // # only declaration is different but internally working is same
+    // # now we have variable that store address is called pointer we can control that memory location now
+    cout << "\n-------------- Data at memory locations ----------------";
+    cout << "a: " << a << endl;
+    cout << "p == &a : " << p << endl;
+    cout << "*p : " << *p << endl;
+    cout << "*(p+0) : " << *(p + 0) << endl;
+    cout << "*(p+4*0) : " << *(p + 4 * 0) << endl;
+    cout << "*(p) : " << *(p) << endl;
+
+    // # Reference variable is other name of the a variable
+    // # is also like ordinary variable
+    cout << "\n--------- Data at reference variable ------------\n";
+    int &q = a;
+    cout << "a : " << a << endl;
+    cout << "q : " << q << endl;
+    cout << "&q : " << &q << endl;
+    cout << "*&q : " << *&q << endl;
+    cout << "*(&q + 0) : " << *(&q + 0) << endl;
+    cout << "*(&q + 4*0) : " << *(&q + 4 * 0) << endl;
+    cout << "*(&q) : " << *(&q) << endl;
+    return 0;
+}
+```
+- Summary :
+<img src="../images/variable_bheviour_internal.jpg" width="600" height="600">
 
 Resource to lean pointer 2 : https://youtu.be/zuegQmMdy8M?si=74hEZldz9Vc996fA
 ------------------------------------------------------------------------------

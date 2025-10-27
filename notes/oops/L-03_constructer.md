@@ -63,7 +63,7 @@ int main()
     return 0;
 }
 ```
-2.Parameterized Constructor
+2. Parameterized Constructor
 - Takes arguments to initialize an object with custom values.
 ```cpp
 class Student
@@ -151,13 +151,13 @@ class Student
 int main()
 {
     Student s1("rahul",19);
-    Student s2=s1; // s2(s1) inetnally -> CC implict run
+    Student s2=s1; // s2(s1) inetnally
     s2.display();
     return 0;
 }
 ```
 - Output : error: invalid constructor; you probably meant 'Student (const Student&)'
-- When CC is a Student (Student s) it will do again call the CC by value thant CC become infinite loop.
+- When CC is a Student (Student s) it will do again call the CC by value that CC become infinite loop.
 - It creates an infinite loop because passing by value calls the copy constructor again to make a copy of s.
 - Compiler detect this flage so give erro so solution in is Here copy by reference!!
 
@@ -181,5 +181,96 @@ Student(Student &s) {
 ```cpp
 Student(const Student &s) { 
     // s.age = 100;  // ❌ error
+}
+```
+
+4. Constructor Overloading
+- A same C overloaded with multiple job (by different in parameter) is called CO
+- by differnet in parameter
+    - Differ number of parameter
+    - Differ DT
+```cpp
+class Student
+{
+private:
+    string name;
+    int age;
+
+public:
+    Student() // Default C
+    {
+        name = "Unkown";
+        age = 0;
+    }
+    Student(string a) // Parameterized C
+    {
+        name = a;
+    }
+    Student(string a, int b) // Parameterized C
+    {
+        name = a;
+        age = b;
+    }
+    Student(const Student &s) // Copy C
+    {
+        name = s.name;
+        age = s.age;
+    }
+    void display()
+    {
+        cout<<"-----------------"<<endl;
+        cout<<"Name : "<<name<<endl;
+        cout<<"Age : "<<age<<endl;
+    }
+};
+
+int main()
+{
+    Student s1;
+    Student s2("rahul");  // s2="rahul" for 1 parameter
+    Student s3("Deepak",18);
+    Student s4=s3;  // s4(s3); internally happen
+
+    s1.display();
+    s2.display();
+    s3.display();
+    s4.display();
+    return 0;
+}
+```
+
+Key Points About Constructors
+------------------------------
+- Constructor has no return type.
+- Name must match class name.
+- Can be overloaded.
+- Can be explicit to prevent implicit conversions.
+- Can be used for dynamic object initialization.
+- Static members cannot be initialized inside constructors directly; they are class-level.
+
+
+Dynamic Initialization with Constructor
+----------------------------------------
+- s1 → Stack, created at runtime(when scop start), size known compile time,auto destroyed after frame execution done.
+```cpp
+int main()
+{
+    Student s1("Rahul", 22);
+    s1.display();
+    return 0;
+}
+```
+- s2 → Pointer on stack, object on heap, created at runtime,not auto destroyed.
+- new keyword
+    - Allocates memory from the heap (at runtime).
+    - Calls the constructor to initialize the object.
+    - Return the address of the object
+```cpp
+int main()
+{
+    Student *s2 = new Student("Rahul", 22);
+    s2->display();
+    delete s; // need to delete manually other wise dead object in heap
+    return 0;
 }
 ```

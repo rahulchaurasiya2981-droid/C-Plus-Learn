@@ -1,17 +1,22 @@
 ## 🧠 Concepts & Keywords
 
-**Object-Oriented Programming (OOP)**, **Encapsulation**, **Abstraction**, **Modularity**,  
-**Regex Validation**, **Password Hashing**, **bcrypt**, **File Handling**, **Data Persistence**,  
-**User Authentication**, **Login System**, **Registration**, **Password Reset**,  
-**ValidationResult Struct**, **Input Validation**, **Secure Authentication**,  
-**File-Based Storage**, **Security Practices**, **Modern C++**
+- Object-Oriented Programming (OOP)  
+- Encapsulation & Abstraction  
+- Modularity & Reusability  
+- Regex-based Input Validation  
+- bcrypt Password Hashing  
+- File Handling & Data Persistence  
+- User Registration & Login  
+- Password Reset Flow  
+- ValidationResult Struct for Error Handling  
+- Secure Authentication Logic  
+- File-Based Storage  
 
 
 
 # 🔐 Login System v2.0 (C++)
 
-A **modern, secure, and beginner-friendly authentication system** built in **C++**, featuring **file-based user management**, **bcrypt password hashing**,**Object-Oriented Design** and **regex-based validation** for usernames, emails, and passwords.  
-This project demonstrates **real-world login functionality** — registration, login, forgot password, reset password, and data security — all from scratch using standard C++.
+A **modern, secure, and beginner-friendly authentication system** built in **C++**, featuring **file-based user management**, **bcrypt password hashing**,**Object-Oriented Design** and **regex-based validation** for usernames, emails, and passwords. This project demonstrates **real-world login functionality** — registration, login, forgot password, reset password, and data security — all from scratch using standard C++.
 
 ---
 
@@ -45,26 +50,6 @@ This project demonstrates **real-world login functionality** — registration, l
 
 ---
 
-## 🧠 Tech Stack
-| **Component**        | **Description**                                    |
-|-----------------------|---------------------------------------------------|
-| **Language**          | C++                                               |
-| **Hashing Library**   | [bcrypt]                                          |
-| **Regex**             | Standard C++ `<regex>` for validation             |
-| **Data Storage**      | File-based                                        |
-
-
----
-
-## 🗂️ Project Structure
-
-/project-root
-│
-├── include                 # include library header
-├── src                     # include cpp files
-├── data                    # text files
-├── app                     # main authentication logic
-└── README.md               # documentation
 
 ## 🧩 How It Works
 The program starts by displaying a simple authentication menu interface with options like **Register**, **Login**, and **Reset Password**. 

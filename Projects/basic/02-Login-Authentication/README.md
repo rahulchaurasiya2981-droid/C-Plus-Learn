@@ -1,3 +1,8 @@
+# 🔐 Login System v2.0 (C++)
+
+A **modern, secure, and beginner-friendly authentication system** built in **C++**, featuring **file-based user management**, **bcrypt password hashing**,**Object-Oriented Design** and **regex-based validation** for usernames, emails, and passwords. This project demonstrates **real-world login functionality** — registration, login, forgot password, reset password, and data security — all from scratch using standard C++.
+
+
 ## 🧠 Concepts & Keywords
 
 - Object-Oriented Programming (OOP)  
@@ -13,10 +18,6 @@
 - File-Based Storage  
 
 
-
-# 🔐 Login System v2.0 (C++)
-
-A **modern, secure, and beginner-friendly authentication system** built in **C++**, featuring **file-based user management**, **bcrypt password hashing**,**Object-Oriented Design** and **regex-based validation** for usernames, emails, and passwords. This project demonstrates **real-world login functionality** — registration, login, forgot password, reset password, and data security — all from scratch using standard C++.
 
 ---
 

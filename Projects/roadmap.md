@@ -1,6 +1,7 @@
 # Basic C++ Projects
 
-1. Simple Calculator
+1. Simple Calculator (done)
+2. Login Authentication (done)
 2. To-Do List Manager
 3. Number Guessing Game
 4. Bank Management System
